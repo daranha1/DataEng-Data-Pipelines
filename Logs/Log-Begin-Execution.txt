@@ -1,0 +1,20 @@
+Task Instance: Begin_execution 
+2021-07-07 21:33:04
+
+Log by attempts
+1
+*** Reading local file: /root/airflow/logs/udac_example_dag/Begin_execution/2021-07-07T21:33:04.412659+00:00/1.log
+[2021-07-07 21:33:10,334] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Begin_execution 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:33:10,345] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Begin_execution 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:33:10,346] {models.py:1571} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 4
+--------------------------------------------------------------------------------
+
+[2021-07-07 21:33:10,380] {models.py:1593} INFO - Executing <Task(DummyOperator): Begin_execution> on 2021-07-07T21:33:04.412659+00:00
+[2021-07-07 21:33:10,381] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run udac_example_dag Begin_execution 2021-07-07T21:33:04.412659+00:00 --job_id 36 --raw -sd DAGS_FOLDER/udac_example_dag.py --cfg_path /tmp/tmp9x3lgimj']
+[2021-07-07 21:33:11,507] {base_task_runner.py:101} INFO - Job 36: Subtask Begin_execution [2021-07-07 21:33:11,506] {settings.py:174} INFO - settings.configure_orm(): Using pool settings. pool_size=5, pool_recycle=1800, pid=9221
+[2021-07-07 21:33:13,372] {base_task_runner.py:101} INFO - Job 36: Subtask Begin_execution [2021-07-07 21:33:13,371] {__init__.py:51} INFO - Using executor LocalExecutor
+[2021-07-07 21:33:14,050] {base_task_runner.py:101} INFO - Job 36: Subtask Begin_execution [2021-07-07 21:33:14,049] {models.py:273} INFO - Filling up the DagBag from /home/workspace/airflow/dags/udac_example_dag.py
+[2021-07-07 21:33:14,143] {base_task_runner.py:101} INFO - Job 36: Subtask Begin_execution [2021-07-07 21:33:14,143] {cli.py:520} INFO - Running <TaskInstance: udac_example_dag.Begin_execution 2021-07-07T21:33:04.412659+00:00 [running]> on host c15699237eb5
+[2021-07-07 21:33:15,348] {logging_mixin.py:95} INFO - [2021-07-07 21:33:15,347] {jobs.py:2527} INFO - Task exited with return code 0

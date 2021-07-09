@@ -1,0 +1,33 @@
+Task Instance: Load_artists_dim_table 
+2021-07-07 21:33:04
+ 
+Log by attempts
+1
+*** Reading local file: /root/airflow/logs/udac_example_dag/Load_artists_dim_table/2021-07-07T21:33:04.412659+00:00/1.log
+[2021-07-07 21:33:52,477] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Load_artists_dim_table 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:33:52,577] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Load_artists_dim_table 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:33:52,577] {models.py:1571} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 4
+--------------------------------------------------------------------------------
+
+[2021-07-07 21:33:52,648] {models.py:1593} INFO - Executing <Task(LoadDimensionOperator): Load_artists_dim_table> on 2021-07-07T21:33:04.412659+00:00
+[2021-07-07 21:33:52,648] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run udac_example_dag Load_artists_dim_table 2021-07-07T21:33:04.412659+00:00 --job_id 42 --raw -sd DAGS_FOLDER/udac_example_dag.py --cfg_path /tmp/tmp2jc4jpsr']
+[2021-07-07 21:33:55,878] {base_task_runner.py:101} INFO - Job 42: Subtask Load_artists_dim_table [2021-07-07 21:33:55,877] {settings.py:174} INFO - settings.configure_orm(): Using pool settings. pool_size=5, pool_recycle=1800, pid=9493
+[2021-07-07 21:34:00,066] {base_task_runner.py:101} INFO - Job 42: Subtask Load_artists_dim_table [2021-07-07 21:34:00,066] {__init__.py:51} INFO - Using executor LocalExecutor
+[2021-07-07 21:34:01,793] {base_task_runner.py:101} INFO - Job 42: Subtask Load_artists_dim_table [2021-07-07 21:34:01,793] {models.py:273} INFO - Filling up the DagBag from /home/workspace/airflow/dags/udac_example_dag.py
+[2021-07-07 21:34:02,032] {base_task_runner.py:101} INFO - Job 42: Subtask Load_artists_dim_table [2021-07-07 21:34:02,032] {cli.py:520} INFO - Running <TaskInstance: udac_example_dag.Load_artists_dim_table 2021-07-07T21:33:04.412659+00:00 [running]> on host c15699237eb5
+[2021-07-07 21:34:02,312] {load_dimension.py:62} INFO - Deleting data from Dimension table : artists ...
+[2021-07-07 21:34:03,175] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,157] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:34:03,619] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,619] {dbapi_hook.py:166} INFO - DELETE FROM artists;
+[2021-07-07 21:34:03,847] {load_dimension.py:64} INFO - Deletion Status : Completed
+[2021-07-07 21:34:03,847] {load_dimension.py:71} INFO - Begin Loading data into Dimension Table : artists ...
+[2021-07-07 21:34:03,885] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,885] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:34:04,314] {logging_mixin.py:95} INFO - [2021-07-07 21:34:04,314] {dbapi_hook.py:166} INFO - 
+            INSERT INTO artists
+            
+        SELECT distinct artist_id, artist_name, artist_location, artist_latitude, artist_longitude
+        FROM staging_songs
+    ;
+[2021-07-07 21:34:04,640] {load_dimension.py:73} INFO -  Dimension Table Status : Loading Completed
+[2021-07-07 21:34:07,526] {logging_mixin.py:95} INFO - [2021-07-07 21:34:07,525] {jobs.py:2527} INFO - Task exited with return code 0

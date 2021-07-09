@@ -1,0 +1,23 @@
+Task Instance: Stop_execution 
+2021-07-07 21:33:04
+ Task Instance Details
+ Rendered Template
+ Log
+ XCom
+Log by attempts
+1
+*** Reading local file: /root/airflow/logs/udac_example_dag/Stop_execution/2021-07-07T21:33:04.412659+00:00/1.log
+[2021-07-07 21:34:21,746] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Stop_execution 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:34:21,778] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Stop_execution 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:34:21,778] {models.py:1571} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 4
+--------------------------------------------------------------------------------
+
+[2021-07-07 21:34:21,797] {models.py:1593} INFO - Executing <Task(DummyOperator): Stop_execution> on 2021-07-07T21:33:04.412659+00:00
+[2021-07-07 21:34:21,797] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run udac_example_dag Stop_execution 2021-07-07T21:33:04.412659+00:00 --job_id 45 --raw -sd DAGS_FOLDER/udac_example_dag.py --cfg_path /tmp/tmpkcku1jxg']
+[2021-07-07 21:34:22,664] {base_task_runner.py:101} INFO - Job 45: Subtask Stop_execution [2021-07-07 21:34:22,664] {settings.py:174} INFO - settings.configure_orm(): Using pool settings. pool_size=5, pool_recycle=1800, pid=9713
+[2021-07-07 21:34:23,729] {base_task_runner.py:101} INFO - Job 45: Subtask Stop_execution [2021-07-07 21:34:23,728] {__init__.py:51} INFO - Using executor LocalExecutor
+[2021-07-07 21:34:24,344] {base_task_runner.py:101} INFO - Job 45: Subtask Stop_execution [2021-07-07 21:34:24,343] {models.py:273} INFO - Filling up the DagBag from /home/workspace/airflow/dags/udac_example_dag.py
+[2021-07-07 21:34:24,387] {base_task_runner.py:101} INFO - Job 45: Subtask Stop_execution [2021-07-07 21:34:24,387] {cli.py:520} INFO - Running <TaskInstance: udac_example_dag.Stop_execution 2021-07-07T21:33:04.412659+00:00 [running]> on host c15699237eb5
+[2021-07-07 21:34:26,709] {logging_mixin.py:95} INFO - [2021-07-07 21:34:26,708] {jobs.py:2527} INFO - Task exited with return code 0

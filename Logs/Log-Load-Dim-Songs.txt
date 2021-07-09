@@ -1,0 +1,34 @@
+
+Task Instance: Load_songs_dim_table 
+2021-07-07 21:33:04
+
+Log by attempts
+1
+*** Reading local file: /root/airflow/logs/udac_example_dag/Load_songs_dim_table/2021-07-07T21:33:04.412659+00:00/1.log
+[2021-07-07 21:33:52,502] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Load_songs_dim_table 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:33:52,599] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Load_songs_dim_table 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:33:52,599] {models.py:1571} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 4
+--------------------------------------------------------------------------------
+
+[2021-07-07 21:33:52,677] {models.py:1593} INFO - Executing <Task(LoadDimensionOperator): Load_songs_dim_table> on 2021-07-07T21:33:04.412659+00:00
+[2021-07-07 21:33:52,678] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run udac_example_dag Load_songs_dim_table 2021-07-07T21:33:04.412659+00:00 --job_id 43 --raw -sd DAGS_FOLDER/udac_example_dag.py --cfg_path /tmp/tmpd9kqrdw6']
+[2021-07-07 21:33:55,925] {base_task_runner.py:101} INFO - Job 43: Subtask Load_songs_dim_table [2021-07-07 21:33:55,925] {settings.py:174} INFO - settings.configure_orm(): Using pool settings. pool_size=5, pool_recycle=1800, pid=9501
+[2021-07-07 21:34:00,147] {base_task_runner.py:101} INFO - Job 43: Subtask Load_songs_dim_table [2021-07-07 21:34:00,133] {__init__.py:51} INFO - Using executor LocalExecutor
+[2021-07-07 21:34:01,869] {base_task_runner.py:101} INFO - Job 43: Subtask Load_songs_dim_table [2021-07-07 21:34:01,869] {models.py:273} INFO - Filling up the DagBag from /home/workspace/airflow/dags/udac_example_dag.py
+[2021-07-07 21:34:02,186] {base_task_runner.py:101} INFO - Job 43: Subtask Load_songs_dim_table [2021-07-07 21:34:02,185] {cli.py:520} INFO - Running <TaskInstance: udac_example_dag.Load_songs_dim_table 2021-07-07T21:33:04.412659+00:00 [running]> on host c15699237eb5
+[2021-07-07 21:34:02,560] {load_dimension.py:62} INFO - Deleting data from Dimension table : songs ...
+[2021-07-07 21:34:03,231] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,222] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:34:03,664] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,664] {dbapi_hook.py:166} INFO - DELETE FROM songs;
+[2021-07-07 21:34:03,940] {load_dimension.py:64} INFO - Deletion Status : Completed
+[2021-07-07 21:34:03,941] {load_dimension.py:71} INFO - Begin Loading data into Dimension Table : songs ...
+[2021-07-07 21:34:03,992] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,992] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:34:04,429] {logging_mixin.py:95} INFO - [2021-07-07 21:34:04,429] {dbapi_hook.py:166} INFO - 
+            INSERT INTO songs
+            
+        SELECT distinct song_id, title, artist_id, year, duration
+        FROM staging_songs
+    ;
+[2021-07-07 21:34:04,767] {load_dimension.py:73} INFO -  Dimension Table Status : Loading Completed
+[2021-07-07 21:34:07,577] {logging_mixin.py:95} INFO - [2021-07-07 21:34:07,576] {jobs.py:2527} INFO - Task exited with return code 0

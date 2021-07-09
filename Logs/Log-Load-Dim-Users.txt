@@ -1,0 +1,34 @@
+Task Instance: Load_users_dim_table 
+2021-07-07 21:33:04
+
+Log by attempts
+1
+*** Reading local file: /root/airflow/logs/udac_example_dag/Load_users_dim_table/2021-07-07T21:33:04.412659+00:00/1.log
+[2021-07-07 21:33:52,461] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Load_users_dim_table 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:33:52,569] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Load_users_dim_table 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:33:52,569] {models.py:1571} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 4
+--------------------------------------------------------------------------------
+
+[2021-07-07 21:33:52,632] {models.py:1593} INFO - Executing <Task(LoadDimensionOperator): Load_users_dim_table> on 2021-07-07T21:33:04.412659+00:00
+[2021-07-07 21:33:52,632] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run udac_example_dag Load_users_dim_table 2021-07-07T21:33:04.412659+00:00 --job_id 41 --raw -sd DAGS_FOLDER/udac_example_dag.py --cfg_path /tmp/tmpuflfruup']
+[2021-07-07 21:33:55,845] {base_task_runner.py:101} INFO - Job 41: Subtask Load_users_dim_table [2021-07-07 21:33:55,844] {settings.py:174} INFO - settings.configure_orm(): Using pool settings. pool_size=5, pool_recycle=1800, pid=9494
+[2021-07-07 21:34:00,007] {base_task_runner.py:101} INFO - Job 41: Subtask Load_users_dim_table [2021-07-07 21:33:59,990] {__init__.py:51} INFO - Using executor LocalExecutor
+[2021-07-07 21:34:01,711] {base_task_runner.py:101} INFO - Job 41: Subtask Load_users_dim_table [2021-07-07 21:34:01,702] {models.py:273} INFO - Filling up the DagBag from /home/workspace/airflow/dags/udac_example_dag.py
+[2021-07-07 21:34:01,902] {base_task_runner.py:101} INFO - Job 41: Subtask Load_users_dim_table [2021-07-07 21:34:01,902] {cli.py:520} INFO - Running <TaskInstance: udac_example_dag.Load_users_dim_table 2021-07-07T21:33:04.412659+00:00 [running]> on host c15699237eb5
+[2021-07-07 21:34:02,173] {load_dimension.py:62} INFO - Deleting data from Dimension table : users2 ...
+[2021-07-07 21:34:03,087] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,085] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:34:03,586] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,586] {dbapi_hook.py:166} INFO - DELETE FROM users2;
+[2021-07-07 21:34:03,822] {load_dimension.py:64} INFO - Deletion Status : Completed
+[2021-07-07 21:34:03,822] {load_dimension.py:71} INFO - Begin Loading data into Dimension Table : users2 ...
+[2021-07-07 21:34:03,861] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,861] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:34:04,301] {logging_mixin.py:95} INFO - [2021-07-07 21:34:04,301] {dbapi_hook.py:166} INFO - 
+            INSERT INTO users2
+            
+        SELECT distinct userid, firstname, lastname, gender, level
+        FROM staging_events
+        WHERE page='NextSong'
+    ;
+[2021-07-07 21:34:04,640] {load_dimension.py:73} INFO -  Dimension Table Status : Loading Completed
+[2021-07-07 21:34:07,393] {logging_mixin.py:95} INFO - [2021-07-07 21:34:07,392] {jobs.py:2527} INFO - Task exited with return code 0

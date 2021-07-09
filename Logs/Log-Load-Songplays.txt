@@ -1,0 +1,48 @@
+
+Task Instance: Load_songplays_fact_table 
+2021-07-07 21:33:04
+ 
+Log by attempts
+1
+*** Reading local file: /root/airflow/logs/udac_example_dag/Load_songplays_fact_table/2021-07-07T21:33:04.412659+00:00/1.log
+[2021-07-07 21:33:35,561] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Load_songplays_fact_table 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:33:35,582] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Load_songplays_fact_table 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:33:35,583] {models.py:1571} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 4
+--------------------------------------------------------------------------------
+
+[2021-07-07 21:33:35,598] {models.py:1593} INFO - Executing <Task(LoadFactOperator): Load_songplays_fact_table> on 2021-07-07T21:33:04.412659+00:00
+[2021-07-07 21:33:35,598] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run udac_example_dag Load_songplays_fact_table 2021-07-07T21:33:04.412659+00:00 --job_id 39 --raw -sd DAGS_FOLDER/udac_example_dag.py --cfg_path /tmp/tmpaag8e17l']
+[2021-07-07 21:33:37,286] {base_task_runner.py:101} INFO - Job 39: Subtask Load_songplays_fact_table [2021-07-07 21:33:37,286] {settings.py:174} INFO - settings.configure_orm(): Using pool settings. pool_size=5, pool_recycle=1800, pid=9388
+[2021-07-07 21:33:38,509] {base_task_runner.py:101} INFO - Job 39: Subtask Load_songplays_fact_table [2021-07-07 21:33:38,508] {__init__.py:51} INFO - Using executor LocalExecutor
+[2021-07-07 21:33:39,066] {base_task_runner.py:101} INFO - Job 39: Subtask Load_songplays_fact_table [2021-07-07 21:33:39,062] {models.py:273} INFO - Filling up the DagBag from /home/workspace/airflow/dags/udac_example_dag.py
+[2021-07-07 21:33:39,146] {base_task_runner.py:101} INFO - Job 39: Subtask Load_songplays_fact_table [2021-07-07 21:33:39,145] {cli.py:520} INFO - Running <TaskInstance: udac_example_dag.Load_songplays_fact_table 2021-07-07T21:33:04.412659+00:00 [running]> on host c15699237eb5
+[2021-07-07 21:33:39,224] {load_fact.py:55} INFO - Start Loading Data into Fact Table : songplays ...
+[2021-07-07 21:33:39,430] {logging_mixin.py:95} INFO - [2021-07-07 21:33:39,429] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:33:39,898] {logging_mixin.py:95} INFO - [2021-07-07 21:33:39,898] {dbapi_hook.py:166} INFO - 
+            INSERT INTO songplays
+            
+        SELECT
+                md5(events.sessionid || events.start_time) songplay_id,
+                events.start_time, 
+                events.userid, 
+                events.level, 
+                songs.song_id, 
+                songs.artist_id, 
+                events.sessionid, 
+                events.location, 
+                events.useragent
+                FROM (SELECT TIMESTAMP 'epoch' + ts/1000 * interval '1 second' AS start_time, *
+            FROM staging_events
+            WHERE page='NextSong') events
+            LEFT JOIN staging_songs songs
+            ON events.song = songs.title
+                AND events.artist = songs.artist_name
+                AND events.length = songs.duration
+    ;
+[2021-07-07 21:33:40,203] {load_fact.py:64} INFO - Loading Status - Fact Table : Completed
+[2021-07-07 21:33:40,565] {logging_mixin.py:95} INFO - [2021-07-07 21:33:40,565] {jobs.py:2595} WARNING - State of this instance has been externally set to success. Taking the poison pill.
+[2021-07-07 21:33:40,585] {helpers.py:250} INFO - Sending Signals.SIGTERM to GPID 9388
+[2021-07-07 21:33:40,591] {helpers.py:232} INFO - Process psutil.Process(pid=9388 (terminated)) (9388) terminated with exit code 0
+[2021-07-07 21:33:40,593] {logging_mixin.py:95} INFO - [2021-07-07 21:33:40,592] {jobs.py:2527} INFO - Task exited with return code 0

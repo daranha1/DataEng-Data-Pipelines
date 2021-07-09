@@ -1,0 +1,46 @@
+
+Task Instance: Stage_events 
+2021-07-07 21:33:04
+ Task Instance Details
+ Rendered Template
+ Log
+ XCom
+Log by attempts
+1
+*** Reading local file: /root/airflow/logs/udac_example_dag/Stage_events/2021-07-07T21:33:04.412659+00:00/1.log
+[2021-07-07 21:33:20,961] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Stage_events 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:33:21,005] {models.py:1359} INFO - Dependencies all met for <TaskInstance: udac_example_dag.Stage_events 2021-07-07T21:33:04.412659+00:00 [queued]>
+[2021-07-07 21:33:21,005] {models.py:1571} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 1 of 4
+--------------------------------------------------------------------------------
+
+[2021-07-07 21:33:21,078] {models.py:1593} INFO - Executing <Task(StageToRedshiftOperator): Stage_events> on 2021-07-07T21:33:04.412659+00:00
+[2021-07-07 21:33:21,079] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run udac_example_dag Stage_events 2021-07-07T21:33:04.412659+00:00 --job_id 37 --raw -sd DAGS_FOLDER/udac_example_dag.py --cfg_path /tmp/tmp84ui6_aa']
+[2021-07-07 21:33:22,769] {base_task_runner.py:101} INFO - Job 37: Subtask Stage_events [2021-07-07 21:33:22,769] {settings.py:174} INFO - settings.configure_orm(): Using pool settings. pool_size=5, pool_recycle=1800, pid=9289
+[2021-07-07 21:33:25,342] {base_task_runner.py:101} INFO - Job 37: Subtask Stage_events [2021-07-07 21:33:25,341] {__init__.py:51} INFO - Using executor LocalExecutor
+[2021-07-07 21:33:26,546] {base_task_runner.py:101} INFO - Job 37: Subtask Stage_events [2021-07-07 21:33:26,545] {models.py:273} INFO - Filling up the DagBag from /home/workspace/airflow/dags/udac_example_dag.py
+[2021-07-07 21:33:26,692] {base_task_runner.py:101} INFO - Job 37: Subtask Stage_events [2021-07-07 21:33:26,692] {cli.py:520} INFO - Running <TaskInstance: udac_example_dag.Stage_events 2021-07-07T21:33:04.412659+00:00 [running]> on host c15699237eb5
+[2021-07-07 21:33:27,092] {stage_redshift.py:82} INFO - Preparing to stage data from udacity-dend/log_data to staging_events table ...
+[2021-07-07 21:33:27,122] {logging_mixin.py:95} INFO - [2021-07-07 21:33:27,118] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:33:27,593] {logging_mixin.py:95} INFO - [2021-07-07 21:33:27,593] {dbapi_hook.py:166} INFO - delete from staging_events
+[2021-07-07 21:33:27,884] {stage_redshift.py:85} INFO - Copy data to staging tables : staging_events ...
+[2021-07-07 21:33:27,884] {stage_redshift.py:89} INFO - Rendered Key : log_data
+[2021-07-07 21:33:27,884] {stage_redshift.py:90} INFO - S3 bucket :  udacity-dend
+[2021-07-07 21:33:27,884] {stage_redshift.py:94} INFO - self.table : staging_events
+[2021-07-07 21:33:27,884] {stage_redshift.py:95} INFO - self.credentials.access_key : AKIAUFG6GDOQAPB4WYYC
+[2021-07-07 21:33:27,884] {stage_redshift.py:97} INFO - self.region : us-west-2
+[2021-07-07 21:33:27,885] {stage_redshift.py:99} INFO - file_path : s3://udacity-dend/log_data
+[2021-07-07 21:33:27,885] {stage_redshift.py:100} INFO - self.copy_params : FORMAT AS JSON 's3://udacity-dend/log_json_path.json'
+[2021-07-07 21:33:27,885] {stage_redshift.py:112} INFO - COPY Command Status : Started ...
+[2021-07-07 21:33:27,921] {logging_mixin.py:95} INFO - [2021-07-07 21:33:27,921] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:33:28,378] {logging_mixin.py:95} INFO - [2021-07-07 21:33:28,378] {dbapi_hook.py:166} INFO - 
+                   COPY staging_events
+                   FROM 's3://udacity-dend/log_data'
+                   ACCESS_KEY_ID 'AKIAUFG6GDOQAPB4WYYC'
+                   SECRET_ACCESS_KEY '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'
+                   REGION 'us-west-2'
+                   COMPUPDATE OFF       
+                   FORMAT AS JSON 's3://udacity-dend/log_json_path.json'
+[2021-07-07 21:33:31,214] {stage_redshift.py:114} INFO - COPY Command Status : Completed
+[2021-07-07 21:33:35,939] {logging_mixin.py:95} INFO - [2021-07-07 21:33:35,938] {jobs.py:2527} INFO - Task exited with return code 0
