@@ -23,7 +23,7 @@ JSON metadata about the songs the users listen to.<br/>
    to catch any discrepancies in the datasets.<br/>
 
 ### Schema Design from Project 3
-![](./images/sparkify-schema-data-warehouse-proj5.png)
+![](./images/sparkify-schema-data-warehouse-proj5.PNG)
 
 ## Project Datasets
 | Data               | Location                     | File Path                        |
