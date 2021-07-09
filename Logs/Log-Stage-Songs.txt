@@ -19,23 +19,23 @@ Starting attempt 1 of 4
 [2021-07-07 21:33:26,542] {base_task_runner.py:101} INFO - Job 38: Subtask Stage_songs [2021-07-07 21:33:26,541] {models.py:273} INFO - Filling up the DagBag from /home/workspace/airflow/dags/udac_example_dag.py
 [2021-07-07 21:33:26,675] {base_task_runner.py:101} INFO - Job 38: Subtask Stage_songs [2021-07-07 21:33:26,675] {cli.py:520} INFO - Running <TaskInstance: udac_example_dag.Stage_songs 2021-07-07T21:33:04.412659+00:00 [running]> on host c15699237eb5
 [2021-07-07 21:33:27,077] {stage_redshift.py:82} INFO - Preparing to stage data from udacity-dend/song_data to staging_songs table ...
-[2021-07-07 21:33:27,110] {logging_mixin.py:95} INFO - [2021-07-07 21:33:27,106] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:33:27,110] {logging_mixin.py:95} INFO - [2021-07-07 21:33:27,106] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.xxxxxxxxxxxx.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
 [2021-07-07 21:33:27,607] {logging_mixin.py:95} INFO - [2021-07-07 21:33:27,607] {dbapi_hook.py:166} INFO - delete from staging_songs
 [2021-07-07 21:33:27,887] {stage_redshift.py:85} INFO - Copy data to staging tables : staging_songs ...
 [2021-07-07 21:33:27,887] {stage_redshift.py:89} INFO - Rendered Key : song_data
 [2021-07-07 21:33:27,887] {stage_redshift.py:90} INFO - S3 bucket :  udacity-dend
 [2021-07-07 21:33:27,887] {stage_redshift.py:94} INFO - self.table : staging_songs
-[2021-07-07 21:33:27,888] {stage_redshift.py:95} INFO - self.credentials.access_key : AKIAUFG6GDOQAPB4WYYC
+[2021-07-07 21:33:27,888] {stage_redshift.py:95} INFO - self.credentials.access_key : xxxxxxxxxxxx
 [2021-07-07 21:33:27,888] {stage_redshift.py:97} INFO - self.region : us-west-2
 [2021-07-07 21:33:27,888] {stage_redshift.py:99} INFO - file_path : s3://udacity-dend/song_data/A/A/A
 [2021-07-07 21:33:27,888] {stage_redshift.py:100} INFO - self.copy_params : FORMAT AS JSON 'auto'
 [2021-07-07 21:33:27,888] {stage_redshift.py:112} INFO - COPY Command Status : Started ...
-[2021-07-07 21:33:27,920] {logging_mixin.py:95} INFO - [2021-07-07 21:33:27,919] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:33:27,920] {logging_mixin.py:95} INFO - [2021-07-07 21:33:27,919] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.xxxxxxxxxxxx.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
 [2021-07-07 21:33:28,352] {logging_mixin.py:95} INFO - [2021-07-07 21:33:28,352] {dbapi_hook.py:166} INFO - 
                    COPY staging_songs
                    FROM 's3://udacity-dend/song_data/A/A/A'
-                   ACCESS_KEY_ID 'AKIAUFG6GDOQAPB4WYYC'
-                   SECRET_ACCESS_KEY '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'
+                   ACCESS_KEY_ID 'XXXXXXXXXXXXXXX'
+                   SECRET_ACCESS_KEY 'XXXXXXXXXXXXXXXX'
                    REGION 'us-west-2'
                    COMPUPDATE OFF       
                    FORMAT AS JSON 'auto'

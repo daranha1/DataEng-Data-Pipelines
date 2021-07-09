@@ -19,7 +19,7 @@ Starting attempt 1 of 4
 [2021-07-07 21:33:39,066] {base_task_runner.py:101} INFO - Job 39: Subtask Load_songplays_fact_table [2021-07-07 21:33:39,062] {models.py:273} INFO - Filling up the DagBag from /home/workspace/airflow/dags/udac_example_dag.py
 [2021-07-07 21:33:39,146] {base_task_runner.py:101} INFO - Job 39: Subtask Load_songplays_fact_table [2021-07-07 21:33:39,145] {cli.py:520} INFO - Running <TaskInstance: udac_example_dag.Load_songplays_fact_table 2021-07-07T21:33:04.412659+00:00 [running]> on host c15699237eb5
 [2021-07-07 21:33:39,224] {load_fact.py:55} INFO - Start Loading Data into Fact Table : songplays ...
-[2021-07-07 21:33:39,430] {logging_mixin.py:95} INFO - [2021-07-07 21:33:39,429] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:33:39,430] {logging_mixin.py:95} INFO - [2021-07-07 21:33:39,429] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.xxxxxxxxxxxx.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
 [2021-07-07 21:33:39,898] {logging_mixin.py:95} INFO - [2021-07-07 21:33:39,898] {dbapi_hook.py:166} INFO - 
             INSERT INTO songplays
             

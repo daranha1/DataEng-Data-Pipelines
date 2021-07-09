@@ -18,11 +18,11 @@ Starting attempt 1 of 4
 [2021-07-07 21:34:01,711] {base_task_runner.py:101} INFO - Job 41: Subtask Load_users_dim_table [2021-07-07 21:34:01,702] {models.py:273} INFO - Filling up the DagBag from /home/workspace/airflow/dags/udac_example_dag.py
 [2021-07-07 21:34:01,902] {base_task_runner.py:101} INFO - Job 41: Subtask Load_users_dim_table [2021-07-07 21:34:01,902] {cli.py:520} INFO - Running <TaskInstance: udac_example_dag.Load_users_dim_table 2021-07-07T21:33:04.412659+00:00 [running]> on host c15699237eb5
 [2021-07-07 21:34:02,173] {load_dimension.py:62} INFO - Deleting data from Dimension table : users2 ...
-[2021-07-07 21:34:03,087] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,085] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:34:03,087] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,085] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.xxxxxxxxxxxx.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
 [2021-07-07 21:34:03,586] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,586] {dbapi_hook.py:166} INFO - DELETE FROM users2;
 [2021-07-07 21:34:03,822] {load_dimension.py:64} INFO - Deletion Status : Completed
 [2021-07-07 21:34:03,822] {load_dimension.py:71} INFO - Begin Loading data into Dimension Table : users2 ...
-[2021-07-07 21:34:03,861] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,861] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.cb1d9cmok2s8.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
+[2021-07-07 21:34:03,861] {logging_mixin.py:95} INFO - [2021-07-07 21:34:03,861] {base_hook.py:83} INFO - Using connection to: id: redshift. Host: redshift-cluster-1.xxxxxxxxxxxx.us-west-2.redshift.amazonaws.com, Port: 5439, Schema: dev, Login: awsuser, Password: XXXXXXXX, extra: {}
 [2021-07-07 21:34:04,301] {logging_mixin.py:95} INFO - [2021-07-07 21:34:04,301] {dbapi_hook.py:166} INFO - 
             INSERT INTO users2
             
